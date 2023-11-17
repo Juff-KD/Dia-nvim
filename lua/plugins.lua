@@ -234,24 +234,8 @@ local plugins ={
       require('config.lspsaga')
     end
 },
-{ 
+{
   "windwp/nvim-autopairs",   config = true,     event = "VeryLazy" 
-},
-{
-  'nvim-telescope/telescope.nvim', tag = '0.1.2',
-   -- or , branch = '0.1.x',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-},
-{ 
-  "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy" 
-},
-{
-  "joshmedeski/telescope-smart-goto.nvim",
-  dependencies = {
-    "nvim-telescope/telescope.nvim",
-    "ThePrimeagen/harpoon",
-  },
 },
 {
   "nvim-tree/nvim-tree.lua",
@@ -588,6 +572,16 @@ local plugins ={
         }
       }
     end,
+},
+{
+  "nvim-telescope/telescope.nvim", branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      --{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+    config = function()
+      require('config.telescope')
+    end
 },
 { 'akinsho/toggleterm.nvim', version = "*",     config = true },
 {

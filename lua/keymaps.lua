@@ -66,10 +66,10 @@ map('n', '<leader>o', function()
 end)
 
 local builtin = require('telescope.builtin')
-map('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true})
-map('n', '<leader>fl',builtin.live_grep, {})
-map('n', '<leader>fb', builtin.buffers, {})
-map('n', '<leader>fh', builtin.help_tags, {})
+ map('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true})
+ map('n', '<leader>fl',builtin.live_grep, {})
+ map('n', '<leader>fb', builtin.buffers, {})
+ map('n', '<leader>fh', builtin.help_tags, {})
 
 
 map('n', 'H', '<cmd>BufferLineCyclePrev<cr>')
