@@ -230,4 +230,6 @@ require("aerial").setup({
 })
 
 vim.keymap.set("n", "<leader>ao", "<Cmd>:AerialToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>an", "<Cmd>:AerialNavToggle<CR>", { noremap = true, silent = true })
+
 
