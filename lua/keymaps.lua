@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map('n', '<leader>vn', '<cmd>Navbuddy<cr>',{noremap=true})
+map('n', '<leader>nb', '<cmd>Navbuddy<cr>',{noremap=true})
 
 map('n', '<leader>w', '<cmd>w!<cr>')
 map('n', '<leader>q', '<cmd>qa!<cr>', silent)
@@ -19,9 +19,8 @@ map('n', '<leader>nn', '<CMD>Neotree float<CR>')
 
 map('n', 'tn', '<CMD>tabnew<cr>')
 map('n', 'cc', '<CMD>close<cr>')
-map('n', 'ss', ':split<Return><C-w>w')
+map('n', 'sp', ':split<Return><C-w>w')
 map('n', 'sv', ':vsplit<Return><C-w>w')
-
 
 -- Copy to system clipboard
 map('v', '<C-c>', '"+y')
@@ -75,13 +74,6 @@ local builtin = require('telescope.builtin')
 map('n', 'H', '<cmd>BufferLineCyclePrev<cr>')
 map('n', 'L', '<cmd>BufferLineCycleNext<cr>')
 map('n', 'C', '<cmd>bd<cr>')
-
-
-map('', 'f', '<cmd>HopChar1CurrentLine<cr>', { noremap = true, silent = true })
-map('', 'F', '<cmd>HopChar2CurrentLine<cr>', { noremap = true, silent = true })
-map('', '<leader>al', '<cmd>HopChar2<cr>', { noremap = true, silent = true })
-map('', '<leader>aw', '<cmd>HopWord<cr>', { noremap = true, silent = true })
-map('', '<leader>aa', '<cmd>HopChar1<cr>', { noremap = true, silent = true })
 
 map('i', 'jk', '<Esc>')
 

@@ -35,14 +35,6 @@ local plugins ={
     require('config.hlslens')
   end,
 },
-{
-  "Wansmer/treesj", lazy=false,   
-  keys = { "<space>m", "<space>j", "<space>s" },
-  dependencies = { "nvim-treesitter/nvim-treesitter" },
-  config = function()
-    require("treesj").setup({})
-  end,
-},
 {'rcarriga/nvim-notify', lazy=false,
     config = function()
       require('config/notify')
@@ -84,21 +76,6 @@ local plugins ={
       require('config/mini')
       -- require('mini.files').setup()
     end,
-},
-{
-    "pwntester/octo.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd = {
-      "Octo",
-    },
-    config = function()
-      require('config.octo')
-    end
 },
 {
   'Exafunction/codeium.vim',
@@ -301,11 +278,6 @@ local plugins ={
   end,
   cmd = "AerialToggle",
 },
-{
-  "phaazon/hop.nvim", 
-    branch = "v2", config = true,
-    event = "VeryLazy" 
-},
 { 
   "lewis6991/gitsigns.nvim", 
    -- config = true,
@@ -327,6 +299,33 @@ local plugins ={
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+},
+{
+  "johmsalas/text-case.nvim",
+  event = "VeryLazy",lazy = false,
+  dependencies = { "nvim-telescope/telescope.nvim" },
+  config = function()
+    require("textcase").setup({})
+    require("telescope").load_extension("textcase")
+  end,
+  keys = {
+    "ga", -- Default invocation prefix
+    { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "v" }, desc = "Telescope" },
+  },
+},
+{
+  "folke/flash.nvim",
+  event = "VeryLazy",
+  ---@type Flash.Config
+  opts = {},
+  -- stylua: ignore
+  keys = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
 },
 {
   "epwalsh/obsidian.nvim",
@@ -465,23 +464,18 @@ local plugins ={
   },
 },
 {
-    "anuvyklack/windows.nvim",
-    event = "WinNew", lazy = false,
-    dependencies = {
-      { "anuvyklack/middleclass" },
-      { "anuvyklack/animation.nvim", enabled = true },
-    },
-    keys = { { "<leader>m", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
-    keys = { { "<leader>mv", "<cmd>WindowsMaximizeVertically<cr>", desc = "Zoom_V" } },
-    keys = { { "<leader>mh", "<cmd>WindowsMaximizeHorizontally<cr>", desc = "Zoom_H" } },
-    keys = { { "<leader>me", "<cmd>WindowsEqualize<cr>", desc = "Zoom_Eq" } },
-    config = function()
-     vim.o.winwidth = 5
-      vim.o.equalalways = false
-      require("windows").setup({
-        animation = { enable = false, duration = 150 },
-      })
-    end,
+  'mrjones2014/smart-splits.nvim',
+  event = 'VeryLazy', lazy = false,
+  config = function()
+    local ss = require ('smart-splits')
+
+    ss.setup()
+    vim.keymap.set('n', '<leader>r',':SmartResizeMode<cr>', {noremap=true, silent=true})
+    vim.keymap.set('n', '<c-h>', ss.move_cursor_left)
+    vim.keymap.set('n', '<c-j>', ss.move_cursor_down)
+    vim.keymap.set('n', '<c-k>', ss.move_cursor_up)
+    vim.keymap.set('n', '<c-l>', ss.move_cursor_right)
+  end,
 },
 -- {
 --   "folke/noice.nvim",
@@ -539,39 +533,23 @@ local plugins ={
    "kylechui/nvim-surround",
     version = "*",
     config = function()
-      require('nvim-surround').setup({})
+      require('nvim-surround').setup()
     end,
     event = "VeryLazy"
 },
 {
-    "nvim-treesitter/nvim-treesitter",
-     dependencies = {
-      "hiphish/rainbow-delimiters.nvim",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "RRethy/nvim-treesitter-textsubjects",
-    },
-    event = "VeryLazy",
-    config = function()
-      require('config.treesitter')
-    end
-},
-{ "windwp/nvim-ts-autotag", 
-    event = "VeryLazy",
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end,
-},
-{
-    "mrjones2014/nvim-ts-rainbow",
-    lazy = false,
-    config = function()
-      require'nvim-treesitter.configs'.setup {
-        rainbow = {
-          enable = true,
-        }
-      }
-    end,
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate',
+  dependencies = {
+    { 'nvim-treesitter/nvim-treesitter-refactor' },
+    { 'nvim-treesitter/nvim-treesitter-textobjects' },
+    { 'yioneko/nvim-yati' },
+    { 'yioneko/vim-tmindent'},
+  },
+  event = 'VeryLazy',
+  config = function()
+    require('config.treesitter')
+  end,
 },
 {
   "nvim-telescope/telescope.nvim", branch = '0.1.x',
