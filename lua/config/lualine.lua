@@ -173,7 +173,7 @@ ins_left({
 		end
 		return msg
 	end,
-	icon = " LSP:",
+	icon = " LSP: ",
 	color = { fg = colors.blue, gui = "bold" },
 })
 
