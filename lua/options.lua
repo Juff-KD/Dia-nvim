@@ -29,7 +29,11 @@ vim.opt.scrolloff = 10
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.backspace = { 'start', 'eol', 'indent' }
+<<<<<<< HEAD
+--vim.o.splitbelow = "splitright"
+=======
 vim.o.splitbelow = "splitright"
+>>>>>>> 71418ecfb8b1f19643bd18cbb754497c7171cfdb
 vim.inccommand = 'split'
 
 vim.ttimeoutlen = 0
