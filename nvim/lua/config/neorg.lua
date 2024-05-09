@@ -1,4 +1,4 @@
-return
+return {
     {
         "vhyrro/luarocks.nvim",
         priority = 1001,
@@ -12,7 +12,7 @@ return
     {
         "nvim-neorg/neorg",
         dependencies = { "luarocks.nvim" },
-        lazy = true,   -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+        lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
         version = "*", -- "v7.0.0" Pin Neorg to the latest stable release
         --config = true,
         config = function()
@@ -89,3 +89,4 @@ return
             })
         end,
     }
+}
