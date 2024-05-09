@@ -1,0 +1,58 @@
+return {
+  "nvim-neorg/neorg",
+  --build = ":Neorg sync-parsers",
+  -- tag = "*",
+  version = "*",
+  dependencies = { "luarocks.nvim" },
+  lazy = false,
+  config = function()
+    require("neorg").setup({
+      load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = { -- Adds pretty icons to your documents
+          config = {
+            icon_preset = "diamond",
+            icons = {
+              todo = {
+                cancelled = {
+                  icon = "",
+                },
+                done = {
+                  icon = "",
+                },
+                pending = {
+                  icon = "",
+                },
+                on_hold = {
+                  icon = "",
+                },
+                urgent = {
+                  icon = "⚠",
+                },
+                recurring = {
+                  icon = "↺",
+                },
+              },
+            },
+          },
+        },
+        ["core.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+              work = "~/notes/work",
+              home = "~/notes/home",
+            },
+            default_workspace = "home",
+          },
+        },
+      },
+      ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+      ["core.itero"] = {},
+      ["core.ui.calendar"] = {},
+    })
+  end,
+}
+
+this is a text
+
