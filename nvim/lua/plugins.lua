@@ -116,15 +116,6 @@ local plugins = {
     }
   },
   {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    lazy = false,
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
-  {
     "karb94/neoscroll.nvim",
     event = "BufRead",
     lazy = false,
@@ -159,7 +150,6 @@ local plugins = {
     require('config.oil'),
     require('config.nvimTree'),
     require('config.zenMode'),
-    require('config.peek'),
     require('config.overseer'),
     require('config.neorg'),
     require('config.neogit'),
@@ -199,13 +189,14 @@ local plugins = {
     require('config.windows'),
     require('config.octo'),
     require('config.builder'),
-    require('config.glow'),
     require('config.foldsign'),
     require('config.whichKey'),
     require('config.track'),
     require('config.Tele-import'),
     require('config.tailwind-tools'),
     require('config.tailwind-fold'),
+    require('config.MdRender'),
+    require('config.MdPreview'),
   }
 
 
