@@ -146,7 +146,7 @@ local plugins = {
     require('config.textcase'),
     require('config.aerial'),
     require('config.lualine'),
-    require('config.neotree'),
+    --require('config.neotree'),
     require('config.oil'),
     require('config.nvimTree'),
     require('config.zenMode'),
@@ -197,6 +197,7 @@ local plugins = {
     require('config.tailwind-fold'),
     require('config.MdRender'),
     require('config.MdPreview'),
+    require('config.harpoon'),
   }
 
 
