@@ -198,6 +198,7 @@ local plugins = {
     require('config.MdRender'),
     require('config.MdPreview'),
     require('config.harpoon'),
+    require('config.typeCheck'),
   }
 
 
