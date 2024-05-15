@@ -1,18 +1,18 @@
 return {
   "NeogitOrg/neogit",
-    branch = "nightly",
+  branch = 'nightly',
   dependencies = {
     "nvim-lua/plenary.nvim",  -- required
     "sindrets/diffview.nvim", -- optional - Diff integration
 
     -- Only one of these is needed, not both.
     "nvim-telescope/telescope.nvim", -- optional
-    "ibhagwan/fzf-lua",              -- optional
+    -- "ibhagwan/fzf-lua",              -- optional
   },
   config = function()
     local neogit = require("neogit")
 
-    neogit.setup {
+    neogit.setup({
       -- Hides the hints at the top of the status buffer
       disable_hint = false,
       -- Disables changing the buffer highlights based on where the cursor is.
@@ -36,7 +36,8 @@ return {
       git_services = {
         ["github.com"] = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
         ["bitbucket.org"] = "https://bitbucket.org/${owner}/${repository}/pull-requests/new?source=${branch_name}&t=1",
-        ["gitlab.com"] = "https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}",
+        ["gitlab.com"] =
+        "https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}",
       },
       -- Allows a different telescope sorter. Defaults to 'fuzzy_with_index_bias'. The example below will use the native fzf
       -- sorter instead. By default, this function returns `nil`.
@@ -123,7 +124,7 @@ return {
       integrations = {
         -- If enabled, use telescope for menu selection rather than vim.ui.select.
         -- Allows multi-select and some things that vim.ui.select doesn't.
-        telescope = nil,
+        telescope = true,
         -- Neogit only provides inline diffs. If you want a more traditional way to look at diffs, you can use `diffview`.
         -- The diffview integration enables the diff popup.
         --
@@ -250,7 +251,7 @@ return {
           ["u"] = "Unstage",
           ["U"] = "UnstageStaged",
           ["$"] = "CommandHistory",
-          ["#"] = "Console",
+          -- ["C"] = "Console",
           ["Y"] = "YankSelected",
           ["<c-r>"] = "RefreshBuffer",
           ["<enter>"] = "GoToFile",
@@ -261,6 +262,6 @@ return {
           ["}"] = "GoToNextHunkHeader",
         },
       },
-    }
+    })
   end
 }
