@@ -12,20 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {
-    "zootedb0t/citruszest.nvim",
-    lazy = false,
-    priority = 1000,
-  },
+  { "zootedb0t/citruszest.nvim",       lazy = false, priority = 1000, },
   { 'Mofiqul/vscode.nvim',             lazy = false, priority = 1000 },
   { "scottmckendry/cyberdream.nvim",   lazy = false, priority = 1000, },
   { 'olivercederborg/poimandres.nvim', lazy = false, priority = 1000 },
-  { 'cryptomilk/nightcity.nvim', version = '*', lazy = false, priority = 1000 },
-  {
-    'ribru17/bamboo.nvim',
-    lazy = false,
-    priority = 1000
-  },
+  { 'ribru17/bamboo.nvim',             lazy = false, priority = 1000 },
   {
     'norcalli/nvim-colorizer.lua',
     lazy = false,
@@ -98,12 +89,6 @@ local plugins = {
     event = "VeryLazy",
     opts = {},
   },
-  {
-    "nmac427/guess-indent.nvim", -- guess indent
-    config = function()
-      require("guess-indent").setup({})
-    end,
-  },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   { "folke/neodev.nvim",  opts = {} },
   {
@@ -146,7 +131,7 @@ local plugins = {
     require('config.textcase'),
     require('config.aerial'),
     require('config.lualine'),
-    --require('config.neotree'),
+    -- require('config.neotree'),
     require('config.oil'),
     require('config.nvimTree'),
     require('config.zenMode'),
@@ -198,7 +183,8 @@ local plugins = {
     require('config.MdRender'),
     require('config.MdPreview'),
     require('config.harpoon'),
-    require('config.typeCheck'),
+    require('config.template-Str'),
+    require('config.sib-swap'),
   }
 
 

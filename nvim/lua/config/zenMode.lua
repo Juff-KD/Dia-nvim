@@ -1,8 +1,8 @@
-return{
+return {
   "folke/zen-mode.nvim",
   config = function()
     require('zen-mode').setup()
-vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<cr>', { silent = true })
+    vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<cr>', { silent = true })
   end,
   opts = {
     -- your configuration comes here
