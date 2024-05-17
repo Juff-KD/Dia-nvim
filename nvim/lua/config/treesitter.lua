@@ -1,16 +1,37 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ':TSUpdate',
-  dependencies = { "windwp/nvim-ts-autotag",
+  dependencies = {
+    "windwp/nvim-ts-autotag",
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context",
+    "RRethy/nvim-treesitter-textsubjects",
+    "andymass/vim-matchup",
   },
   config = function()
     require('nvim-treesitter.configs').setup({
+      modules = { 'nvim-treesitter-textobjects' },
+      auto_install = false,
+      ignore_install = { "" },
       ensure_installed = { "lua", "html" },
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
       autotag = { enable = true },
+      matchup = {
+        enable = true,             -- mandatory, false will disable the whole extension
+        disable = { "c", "ruby" }, -- optional, list of language that will be disabled
+        -- [options]
+      },
+       textsubjects = {
+        enable = true,
+        prev_selection = ',', -- (Optional) keymap to select the previous selection
+        keymaps = {
+            ['.'] = 'textsubjects-smart',
+            [';'] = 'textsubjects-container-outer',
+            ['i;'] = { 'textsubjects-container-inner', desc = "Select inside containers (classes, functions, etc.)" },
+        },
+    },
       textobjects = {
         select = {
           enable = true,

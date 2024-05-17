@@ -184,7 +184,8 @@ local plugins = {
     require('config.MdPreview'),
     require('config.harpoon'),
     require('config.template-Str'),
-    require('config.sib-swap'),
+    require('config.typecheck'),
+    require('config.ts-outer'),
   }
 
 
