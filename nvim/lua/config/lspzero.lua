@@ -146,10 +146,11 @@ return {
         { name = 'path' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
-        { name = 'luasnip',          keyword_length = 2 },
+        { name = 'luasnip', keyword_length = 2 },
         { name = 'buffer',           keyword_length = 3 },
         { name = "codeium" },
         { name = 'friendly-snippets' },
+        { name = 'otter' },
       },
       window = {
         completion = cmp.config.window.bordered(),

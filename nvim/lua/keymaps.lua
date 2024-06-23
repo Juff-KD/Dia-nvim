@@ -22,7 +22,7 @@ map('n', '<A-k>', '<CMD>bnext<cr>')
 map('n', '<A-j>', '<CMD>bprevious<cr>')
 
 map('n', '<leader>n', '<CMD>NvimTreeToggle<CR>')
-map('n', '<leader>nn', '<CMD>Neotree float<CR>')
+-- map('n', '<leader>nn', '<CMD>Neotree float<CR>')
 
 map('n', 'tn', '<CMD>tabnew<cr>')
 map('n', 'cc', '<CMD>close<cr>')

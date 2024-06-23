@@ -28,16 +28,8 @@ local plugins = {
   {
     'uga-rosa/ccc.nvim',
     event = 'FileType',
-    keys = {
-      { '<Leader>cp', '<cmd>CccPick<CR>', desc = 'Color-picker' },
-    },
-    opts = {
-      highlighter = {
-        auto_enable = true,
-        lsp = true,
-        excludes = { 'lazy', 'mason', 'help', 'neo-tree' },
-      },
-    },
+    keys = { { '<Leader>cp', '<cmd>CccPick<CR>', desc = 'Color-picker' }, },
+    opts = { highlighter = { auto_enable = true, lsp = true, excludes = { 'lazy', 'mason', 'help', 'neo-tree' }, }, },
   },
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
@@ -186,6 +178,9 @@ local plugins = {
     require('config.template-Str'),
     require('config.typecheck'),
     require('config.ts-outer'),
+    require('config.grug-far'),
+    require('config.rabbit'),
+    require('config.otter'),
   }
 
 
